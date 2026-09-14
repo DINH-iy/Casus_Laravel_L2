@@ -1,24 +1,25 @@
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+@extends('layouts.app')
 
-    <title>Spel App</title>
-</head>
-<body>
+@section('title', 'Home')
 
-    <h1>Spel App</h1>
+@section('content')
 
-    <nav>
-        <ul>
-            <li>
-                <a href="{{ route('products.index') }}">
-                    Producten
-                </a>
-            </li>
-        </ul>
-    </nav>
+<section class="hero">
+    <div class="hero-content">
+        <p class="eyebrow">Laravel applicatie</p>
 
-</body>
-</html>
+        <h1>Welkom bij My Laravel App</h1>
+
+        <p class="hero-text">
+            Beheer hier de verschillende onderdelen van de applicatie.
+        </p>
+
+        <div class="hero-actions">
+            <a href="{{ route('categories.index') }}" class="btn">
+                Bekijk categorieën
+            </a>
+        </div>
+    </div>
+</section>
+
+@endsection
