@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\Role;
+use Illuminate\Database\Seeder;
 
 class RoleSeeder extends Seeder
 {
@@ -14,7 +14,7 @@ class RoleSeeder extends Seeder
         ]);
 
         Role::create([
-            'name' => 'User',
+            'name' => 'Customer',
         ]);
     }
 }

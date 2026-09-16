@@ -33,18 +33,18 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
-    // public function reviews(): HasMany
-    // {
-    //     return $this->hasMany(Review::class);
-    // }
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class);
+    }
 
-    // public function prices(): HasMany
-    // {
-    //     return $this->hasMany(Price::class);
-    // }
+    public function prices(): HasMany
+    {
+        return $this->hasMany(Price::class);
+    }
 
-    // public function orderRows(): HasMany
-    // {
-    //     return $this->hasMany(OrderRow::class);
-    // }
+    public function orderRows(): HasMany
+    {
+        return $this->hasMany(OrderRow::class);
+    }
 }

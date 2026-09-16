@@ -9,7 +9,7 @@ class Index
     public function index()
     {
         $categories = Category::all();
-        return view('categories.index', ['categories' => $categories,]);
+        return view('categories.index', ['categories' => $categories]);
         // return $categories->toArray();
     }
 }

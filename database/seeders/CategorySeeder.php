@@ -16,5 +16,13 @@ class CategorySeeder extends Seeder
         Category::create([
             'name' => 'Accessoires',
         ]);
+
+        Category::create([
+            'name' => 'Laptops',
+        ]);
+
+        Category::create([
+            'name' => 'Monitoren',
+        ]);
     }
 }
