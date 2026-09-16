@@ -1,26 +1,13 @@
 @extends('layouts.app')
-
 @section('title', $category->name)
-
 @section('content')
-
 <div class="card">
-
     <h1>Categorie aanpassen</h1>
-
-    <form
-        class="form"
-        method="POST"
-        action="{{ route('categories.update', $category->id) }}"
-    >
+    <form class="form" method="POST" action="{{ route('categories.update', $category->id) }}">
         @csrf
         @method('PUT')
-
         <div class="form-group">
-            <label
-                class="form-label"
-                for="name"
-            >
+            <label class="form-label" for="name">
                 Naam
             </label>
 
@@ -34,23 +21,15 @@
         </div>
 
         <div class="form-actions">
-            <a
-                href="{{ route('categories.index') }}"
-                class="btn btn-secondary"
-            >
+            <a href="{{ route('categories.index') }}" class="btn btn-secondary">
                 Terug
             </a>
 
-            <button
-                type="submit"
-                class="btn"
-            >
+            <button type="submit" class="btn">
                 Opslaan
             </button>
         </div>
-
     </form>
-
 </div>
 
 @endsection

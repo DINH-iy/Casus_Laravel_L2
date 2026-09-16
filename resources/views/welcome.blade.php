@@ -6,12 +6,12 @@
 
 <section class="shop-hero">
     <div class="shop-hero-content">
-        <p class="eyebrow">Welkom bij My Laravel Shop</p>
+        <p class="eyebrow">Webshop</p>
 
-        <h1>Vind precies wat je zoekt.</h1>
+        <h1>Vind wat je zoekt.</h1>
 
         <p class="shop-hero-text">
-            Bekijk ons assortiment en ontdek producten uit verschillende categorieën.
+            Bekijk ons assortiment en ontdek onze nieuwste producten.
         </p>
 
         <div class="shop-hero-actions">
@@ -20,25 +20,31 @@
             </a>
 
             <a href="{{ route('categories.index') }}" class="btn btn-outline btn-large">
-                Bekijk categorieën
+                Categorieën
             </a>
         </div>
     </div>
 
-    <div class="shop-hero-visual">
-        <div class="hero-product-card">
-            <span>Nieuw assortiment</span>
-            <strong>Shop nu</strong>
+    <div class="shop-stats">
+        <div class="shop-stat">
+            <strong>{{ $categories->count() }}</strong>
+            <span>Categorieën</span>
+        </div>
+
+        <div class="shop-stat">
+            <strong>{{ $products->count() }}</strong>
+            <span>Nieuwste producten</span>
         </div>
     </div>
 </section>
 
 
 <section class="home-section">
+
     <div class="section-heading">
         <div>
-            <p class="eyebrow">Categorieën</p>
-            <h2>Shop per categorie</h2>
+            <p class="eyebrow">Ontdek</p>
+            <h2>Categorieën</h2>
         </div>
 
         <a href="{{ route('categories.index') }}" class="text-link">
@@ -47,96 +53,116 @@
     </div>
 
     <div class="category-grid">
-        <a href="{{ route('categories.index') }}" class="category-card">
-            <div class="category-icon">01</div>
-            <h3>Bekijk categorieën</h3>
-            <p>Ontdek ons assortiment per categorie.</p>
-        </a>
 
-        <a href="{{ route('products.index') }}" class="category-card">
-            <div class="category-icon">02</div>
-            <h3>Alle producten</h3>
-            <p>Bekijk direct alle beschikbare producten.</p>
-        </a>
+        @forelse($categories as $category)
+
+            <a
+                href="{{ route('categories.show', $category->id) }}"
+                class="category-card"
+            >
+                <div>
+                    <h3>{{ $category->name }}</h3>
+
+                    <p>
+                        {{ $category->products_count }}
+                        {{ $category->products_count === 1 ? 'product' : 'producten' }}
+                    </p>
+                </div>
+
+                <span class="category-arrow">→</span>
+            </a>
+
+        @empty
+
+            <p>Er zijn nog geen categorieën.</p>
+
+        @endforelse
+
     </div>
 </section>
 
 
 <section class="home-section">
+
     <div class="section-heading">
         <div>
             <p class="eyebrow">Assortiment</p>
-            <h2>Uitgelichte producten</h2>
+            <h2>Nieuwste producten</h2>
         </div>
 
         <a href="{{ route('products.index') }}" class="text-link">
-            Bekijk alles
+            Alle producten
         </a>
     </div>
 
     <div class="product-grid">
 
-        <article class="product-card">
-            <div class="product-image">
-                Product afbeelding
-            </div>
+        @forelse($products as $product)
 
-            <div class="product-info">
-                <span class="product-category">Categorie</span>
+            <article class="product-card">
 
-                <h3>Voorbeeld product</h3>
+                <div class="product-card-header">
 
-                <div class="product-bottom">
-                    <strong class="product-price">€ 29,95</strong>
+                    @if($product->category)
+                        <span class="product-category">
+                            {{ $product->category->name }}
+                        </span>
+                    @endif
 
-                    <a href="{{ route('products.index') }}" class="btn">
+                    <span class="review-count">
+                        {{ $product->reviews_count }}
+                        {{ $product->reviews_count === 1 ? 'review' : 'reviews' }}
+                    </span>
+
+                </div>
+
+                <div class="product-card-body">
+
+                    <h3>{{ $product->name }}</h3>
+
+                    <p class="product-description">
+                        {{ \Illuminate\Support\Str::limit($product->description, 120) }}
+                    </p>
+
+                </div>
+
+                <div class="product-card-footer">
+
+                    <div class="product-price">
+
+                        @if($product->currentPrice)
+
+                            € {{ number_format(
+                                $product->currentPrice->price,
+                                2,
+                                ',',
+                                '.'
+                            ) }}
+
+                        @else
+
+                            Geen prijs
+
+                        @endif
+
+                    </div>
+
+                    <a
+                        href="{{ route('products.show', $product->id) }}"
+                        class="btn"
+                    >
                         Bekijken
                     </a>
+
                 </div>
-            </div>
-        </article>
 
+            </article>
 
-        <article class="product-card">
-            <div class="product-image">
-                Product afbeelding
-            </div>
+        @empty
 
-            <div class="product-info">
-                <span class="product-category">Categorie</span>
+            <p>Er zijn nog geen producten.</p>
 
-                <h3>Voorbeeld product</h3>
-
-                <div class="product-bottom">
-                    <strong class="product-price">€ 49,95</strong>
-
-                    <a href="{{ route('products.index') }}" class="btn">
-                        Bekijken
-                    </a>
-                </div>
-            </div>
-        </article>
-
-
-        <article class="product-card">
-            <div class="product-image">
-                Product afbeelding
-            </div>
-
-            <div class="product-info">
-                <span class="product-category">Categorie</span>
-
-                <h3>Voorbeeld product</h3>
-
-                <div class="product-bottom">
-                    <strong class="product-price">€ 19,95</strong>
-
-                    <a href="{{ route('products.index') }}" class="btn">
-                        Bekijken
-                    </a>
-                </div>
-            </div>
-        </article>
+        @endforelse
 
     </div>
 </section>
