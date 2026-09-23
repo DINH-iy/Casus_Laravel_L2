@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Providers\Categories\Index;
 use App\Providers\Categories\Get;
 use App\Providers\Categories\Update;
+use App\Providers\Categories\Create;
+use App\Providers\Categories\Destroy;
+
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -24,9 +27,11 @@ class CategoryController extends Controller
         return $get->get($id);
     }
 
-    public function create()
+    public function create(Request $request,)
     {
-        //
+        $create = new Create();
+
+        return $create->create($request);
     }
 
     public function update(Request $request, int $id)
@@ -37,6 +42,7 @@ class CategoryController extends Controller
 
     public function destroy(int $id)
     {
-        //
+       $destroy = new Destroy();
+       return $destroy->destroy($id);
     }
 }

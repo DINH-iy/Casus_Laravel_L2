@@ -57,7 +57,7 @@
         @forelse($categories as $category)
 
             <a
-                href="{{ route('categories.show', $category->id) }}"
+                href="{{ route('categories.get', $category->id) }}"
                 class="category-card"
             >
                 <div>
@@ -147,12 +147,12 @@
 
                     </div>
 
-                    <a
-                        href="{{ route('products.show', $product->id) }}"
+                    {{-- <a
+                        href="{{ route('products.get', $product->id) }}"
                         class="btn"
                     >
                         Bekijken
-                    </a>
+                    </a> --}}
 
                 </div>
 

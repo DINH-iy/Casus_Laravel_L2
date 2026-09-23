@@ -38,6 +38,12 @@ class Product extends Model
         return $this->hasMany(Review::class);
     }
 
+    public function currentPrice()
+    {
+        return $this->hasOne(Price::class)
+            ->latestOfMany('effdate');
+    }
+    
     public function prices(): HasMany
     {
         return $this->hasMany(Price::class);

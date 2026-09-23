@@ -6,7 +6,7 @@
 
     <title>@yield('title', 'My Laravel App')</title>
 
-    @vite(['resources/css/app.css', 'resources/js/app.js','resources/css/products.css' ])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>

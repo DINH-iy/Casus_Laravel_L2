@@ -481,3 +481,29 @@ h3 {
         grid-template-columns: 1fr;
     }
 }
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.card-header h1 {
+    margin: 0;
+}
+
+.list-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.list-actions form {
+    margin: 0;
+}
+
+.btn-danger {
+    background-color: #dc2626;
+    color: white;
+}

@@ -10,6 +10,5 @@ class Index
     {
         $categories = Category::all();
         return view('categories.index', ['categories' => $categories]);
-        // return $categories->toArray();
     }
 }

@@ -22,12 +22,12 @@ Route::get('/categories/{id}', [CategoryController::class, 'get'])
 Route::put('/categories/{id}', [CategoryController::class, 'update'])
     ->name('categories.update');
 
+Route::post('/categories/create', [CategoryController::class, 'create'])
+    ->name('categories.create');
+
+Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])
+    ->name('categories.destroy');
+
 Route::get('/products', [ProductController::class, 'index'])
     ->name('products.index');
-
-// Route::get('/categories/{id}', [ProductController::class, 'get'])
-//     ->name('categories.get');
-
-// Route::put('/categories/{id}', [ProductController::class, 'update'])
-//     ->name('categories.update');
 
