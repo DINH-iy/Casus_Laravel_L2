@@ -8,7 +8,12 @@ class Index
 {
     public function index()
     {
-        $categories = Category::all();
-        return view('categories.index', ['categories' => $categories]);
+        $categories = Category::withCount('products')
+            ->orderBy('name')
+            ->get();
+        
+        return view('categories.index', [
+            'categories' => $categories,
+        ]);
     }
 }

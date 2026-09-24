@@ -1,25 +1,71 @@
-<form
-    id="create-category-form"
-    method="POST"
-    action="{{ route('categories.create') }}"
-    style="display: none;"
->
-    @csrf
+<dialog id="create-category-modal" class="modal">
 
-    <label for="name">Naam</label>
+    <div class="modal-content">
 
-    <input
-        type="text"
-        id="name"
-        name="name"
-        required
-    >
+        <div class="modal-header">
+            <h2>Nieuwe categorie</h2>
 
-    <button type="submit" class="btn">
-        Opslaan
-    </button>
+            <button
+                type="button"
+                id="close-create-category"
+                class="modal-close"
+            >
+                ×
+            </button>
+        </div>
 
-    <button type="button" id="cancel-create-category" class="btn">
-        Annuleren
-    </button>
-</form>
+        <form
+            method="POST"
+            action="{{ route('categories.create') }}"
+            class="form"
+        >
+            @csrf
+
+            <div class="form-group">
+                <label
+                    for="name"
+                    class="form-label"
+                >
+                    Naam
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="form-input"
+                    value="{{ old('name') }}"
+                    required
+                    autofocus
+                >
+
+                @error('name')
+                    <span class="form-error">
+                        {{ $message }}
+                    </span>
+                @enderror
+            </div>
+
+            <div class="form-actions">
+
+                <button
+                    type="button"
+                    id="cancel-create-category"
+                    class="btn btn-secondary"
+                >
+                    Annuleren
+                </button>
+
+                <button
+                    type="submit"
+                    class="btn"
+                >
+                    Opslaan
+                </button>
+
+            </div>
+        </form>
+
+    </div>
+
+</dialog>

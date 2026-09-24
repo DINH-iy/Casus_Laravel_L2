@@ -9,20 +9,33 @@
     <div class="card-header">
         <h1>Categories</h1>
 
-        <button type="button" id="show-create-category" class="btn">
+        <button
+            type="button"
+            id="show-create-category"
+            class="btn"
+        >
             Nieuwe categorie
         </button>
     </div>
 
     @include('categories.partials.create')
-    
+
     <ul class="list">
-        @foreach ($categories as $category)
+
+        @forelse ($categories as $category)
+
             <li class="list-item">
 
-                <span class="list-item-title">
-                    {{ $category->name }}
-                </span>
+                <div>
+                    <span class="list-item-title">
+                        {{ $category->name }}
+                    </span>
+
+                    <small>
+                        {{ $category->products_count }}
+                        {{ $category->products_count === 1 ? 'product' : 'producten' }}
+                    </small>
+                </div>
 
                 <div class="list-actions">
 
@@ -40,7 +53,14 @@
                         @csrf
                         @method('DELETE')
 
-                        <button type="submit" class="btn btn-danger">
+                        <button
+                            type="submit"
+                            class="btn btn-danger"
+                            @disabled(!$category->canDelete())
+                            title="{{ !$category->canDelete()
+                                ? 'Deze categorie heeft gekoppelde producten'
+                                : 'Categorie verwijderen' }}"
+                        >
                             Verwijderen
                         </button>
                     </form>
@@ -48,7 +68,15 @@
                 </div>
 
             </li>
-        @endforeach
+
+        @empty
+
+            <li class="list-item">
+                Geen categorieën gevonden.
+            </li>
+
+        @endforelse
+
     </ul>
 
 </div>
