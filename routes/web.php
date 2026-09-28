@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
-
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 
@@ -31,3 +31,32 @@ Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])
 Route::get('/products', [ProductController::class, 'index'])
     ->name('products.index');
 
+Route::get('/login', [LoginController::class, 'show'])
+    ->middleware('guest')
+    ->name('login');
+
+Route::post('/login', [LoginController::class, 'login'])
+    ->middleware('guest');
+
+Route::post('/logout', [LoginController::class, 'logout'])
+    ->middleware('auth')
+    ->name('logout');
+
+Route::middleware('auth')->group(function () {
+
+    // Route::get('/categories', [CategoryController::class, 'index'])
+    //     ->name('categories.index');
+
+    // Route::get('/categories/{id}', [CategoryController::class, 'get'])
+    //     ->name('categories.get');
+
+    // Route::put('/categories/{id}', [CategoryController::class, 'update'])
+    //     ->name('categories.update');
+
+    // Route::post('/categories/create', [CategoryController::class, 'create'])
+    //     ->name('categories.create');
+
+    // Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])
+    //     ->name('categories.destroy');
+
+});

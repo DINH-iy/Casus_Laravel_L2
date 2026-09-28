@@ -6,8 +6,9 @@ use App\Providers\Orders\Index;
 // use App\Providers\Orders\Get;
 // use App\Providers\Orders\Update;
 use Illuminate\Http\Request;
+use App\Http\Interfaces\CRUDControllerInterface;
 
-class OrderController extends Controller
+class OrderController extends Controller implements CRUDControllerInterface
 {
     /**
      * Display a listing of the resource.
@@ -18,27 +19,27 @@ class OrderController extends Controller
         return  $index->Index();
     }
 
-    // public function get(int $id)
-    // {
-    //     $get = new Get();
+    public function get(int $id)
+    {
+        // $get = new Get();
+        // return $get->get($id);
+    }
 
-    //     return $get->get($id);
-    // }
+    public function create()
+    {
+        // $create = new Create();
+        // return $create->create($request);
+    }
 
-    // public function create()
-    // {
-    //     //
-    // }
+    public function update(Request $request, int $id)
+    {
+        // $update = new Update();
+        // return $update->update($request, $id);
+    }
 
-    // public function update(Request $request, int $id)
-    // {
-    //     $update = new Update();
-
-    //     return $update->update($request, $id);
-    // }
-
-    // public function destroy(int $id)
-    // {
-    //     //
-    // }
+    public function destroy(int $id)
+    {
+        //$destroy = new Destroy();
+        //return $destroy->destroy($id);
+    }
 }

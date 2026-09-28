@@ -11,7 +11,7 @@ class Index
         $categories = Category::withCount('products')
             ->orderBy('name')
             ->get();
-        
+
         return view('categories.index', [
             'categories' => $categories,
         ]);
