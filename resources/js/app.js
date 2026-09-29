@@ -1,4 +1,4 @@
-//
+
 document.addEventListener('DOMContentLoaded', () => {
 
     const modal = document.getElementById('create-category-modal');

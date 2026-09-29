@@ -3,7 +3,7 @@
 namespace App\Providers\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+    
 class Login
 {
     public function login(Request $request)
