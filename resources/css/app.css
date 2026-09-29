@@ -565,3 +565,146 @@ h3 {
     color: #dc2626;
     font-size: 0.85rem;
 }
+.auth-card {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-error {
+    color: #dc2626;
+    font-size: 0.9rem;
+}
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-user {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header-user form {
+    margin: 0;
+}
+/* Login */
+
+.login-page {
+    min-height: calc(100vh - 140px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 3rem 1rem;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 430px;
+
+    background: white;
+
+    padding: 2.5rem;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+
+    box-shadow:
+        0 20px 40px rgba(15, 23, 42, 0.08),
+        0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+.login-header {
+    margin-bottom: 2rem;
+}
+
+.login-eyebrow {
+    display: block;
+
+    margin-bottom: 0.5rem;
+
+    color: #2563eb;
+
+    font-size: 0.8rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.login-header h1 {
+    margin: 0 0 0.5rem;
+
+    font-size: 2rem;
+    color: #111827;
+}
+
+.login-header p {
+    margin: 0;
+
+    color: #6b7280;
+    line-height: 1.5;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.login-form .form-label {
+    font-size: 0.9rem;
+}
+
+.login-form .form-input {
+    padding: 0.85rem 1rem;
+
+    border-radius: 8px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.login-form .form-input::placeholder {
+    color: #9ca3af;
+}
+
+.login-button {
+    width: 100%;
+
+    margin-top: 0.5rem;
+    padding: 0.85rem 1rem;
+
+    border-radius: 8px;
+
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.form-error {
+    margin-top: 0.25rem;
+
+    color: #dc2626;
+
+    font-size: 0.85rem;
+}
+
+@media (max-width: 500px) {
+    .login-page {
+        padding: 2rem 0;
+        align-items: flex-start;
+    }
+
+    .login-card {
+        padding: 1.75rem;
+        border-radius: 12px;
+    }
+
+    .login-header h1 {
+        font-size: 1.7rem;
+    }
+}

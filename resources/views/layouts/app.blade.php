@@ -12,8 +12,28 @@
 <body>
 
 <header>
-    <div class="container">
+    <div class="container header-content">
         <h1>My Laravel App</h1>
+
+        @guest
+            <a href="{{ route('login') }}" class="btn">
+                Inloggen
+            </a>
+        @endguest
+
+        @auth
+            <div class="header-user">
+                <span>{{ auth()->user()->name }}</span>
+
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+
+                    <button type="submit" class="btn">
+                        Uitloggen
+                    </button>
+                </form>
+            </div>
+        @endauth
     </div>
 </header>
 

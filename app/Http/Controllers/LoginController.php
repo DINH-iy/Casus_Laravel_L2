@@ -6,12 +6,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Providers\Auth\Login; 
 use App\Providers\Auth\Logout; 
+use App\Providers\Auth\Show; 
 
 class LoginController extends Controller
 {
     public function show()
     {
-        
+        $show = new Show();
+         return $show->show();
     }
 
     public function login(Request $request)

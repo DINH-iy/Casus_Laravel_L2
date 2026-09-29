@@ -4,43 +4,74 @@
 
 @section('content')
 
-<div class="card">
-    <h1>Inloggen</h1>
+<div class="login-page">
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
+    <div class="login-card">
 
-        <div>
-            <label for="email">E-mailadres</label>
-
-            <input
-                type="email"
-                id="email"
-                name="email"
-                value="{{ old('email') }}"
-                required
-            >
-
-            @error('email')
-                <p>{{ $message }}</p>
-            @enderror
+        <div class="login-header">
+            <span class="login-eyebrow">Welkom terug</span>
+            <h1>Inloggen</h1>
+            <p>Log in om verder te gaan.</p>
         </div>
 
-        <div>
-            <label for="password">Wachtwoord</label>
+        <form
+            method="POST"
+            action="{{ route('login.authenticate') }}"
+            class="login-form"
+        >
+            @csrf
 
-            <input
-                type="password"
-                id="password"
-                name="password"
-                required
-            >
-        </div>
+            <div class="form-group">
+                <label for="email" class="form-label">
+                    E-mailadres
+                </label>
 
-        <button type="submit" class="btn">
-            Inloggen
-        </button>
-    </form>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value="{{ old('email') }}"
+                    class="form-input"
+                    placeholder="naam@example.nl"
+                    required
+                    autofocus
+                >
+
+                @error('email')
+                    <span class="form-error">
+                        {{ $message }}
+                    </span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="form-label">
+                    Wachtwoord
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    class="form-input"
+                    placeholder="Je wachtwoord"
+                    required
+                >
+
+                @error('password')
+                    <span class="form-error">
+                        {{ $message }}
+                    </span>
+                @enderror
+            </div>
+
+            <button type="submit" class="btn login-button">
+                Inloggen
+            </button>
+        </form>
+
+    </div>
+
 </div>
 
 @endsection
