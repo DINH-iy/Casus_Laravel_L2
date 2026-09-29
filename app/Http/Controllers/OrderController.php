@@ -6,7 +6,7 @@ use App\Providers\Orders\Index;
 // use App\Providers\Orders\Get;
 // use App\Providers\Orders\Update;
 use Illuminate\Http\Request;
-use App\Http\Interfaces\ControllerInterface;
+use App\Interfaces\ControllerInterface;
 
 class OrderController extends Controller implements ControllerInterface
 {

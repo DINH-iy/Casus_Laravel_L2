@@ -7,7 +7,7 @@ use App\Providers\Categories\Get;
 use App\Providers\Categories\Update;
 use App\Providers\Categories\Create;
 use App\Providers\Categories\Destroy;
-use App\Http\Interfaces\ControllerInterface;
+use App\Interfaces\ControllerInterface;
 
 use Illuminate\Http\Request;
 

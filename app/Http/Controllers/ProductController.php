@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Providers\Products\Index;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use App\Http\Interfaces\ControllerInterface;
+use App\Interfaces\ControllerInterface;
 
 class ProductController extends Controller implements ControllerInterface
 {

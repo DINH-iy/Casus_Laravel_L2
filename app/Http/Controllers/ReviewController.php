@@ -6,7 +6,7 @@ use App\Providers\Reviews\Index;
 use App\Providers\Reviews\Get;
 use App\Providers\Reviews\Update;
 use Illuminate\Http\Request;
-use App\Http\Interfaces\ControllerInterface;
+use App\Interfaces\ControllerInterface;
 
 class ReviewController extends Controller implements ControllerInterface
 {
