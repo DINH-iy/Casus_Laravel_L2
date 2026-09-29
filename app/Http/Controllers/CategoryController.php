@@ -7,10 +7,11 @@ use App\Providers\Categories\Get;
 use App\Providers\Categories\Update;
 use App\Providers\Categories\Create;
 use App\Providers\Categories\Destroy;
+use App\Http\Interfaces\ControllerInterface;
 
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class CategoryController extends Controller implements ControllerInterface
 {
     /**
      * Display a listing of the resource.
@@ -27,21 +28,21 @@ class CategoryController extends Controller
         return $get->get($id);
     }
 
-    public function create(Request $request,)
+    public function create(Request $request)
     {
-        $create = new Create();
-        return $create->create($request);
+        // $create = new Create();
+        // return $create->create($request);
     }
 
     public function update(Request $request, int $id)
     {
-        $update = new Update();
-        return $update->update($request, $id);
+        // $update = new Update();
+        // return $update->update($request, $id);
     }
 
     public function destroy(int $id)
     {
-       $destroy = new Destroy();
-       return $destroy->destroy($id);
+    //    $destroy = new Destroy();
+    //    return $destroy->destroy($id);
     }
 }

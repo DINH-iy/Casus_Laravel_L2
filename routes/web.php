@@ -13,8 +13,8 @@ Route::get('/', [HomeController::class, 'index'])
 // Route::resource('categories', CategoryController::class);
 // Route::resource('products', ProductController::class);
 
-Route::get('/categories', [CategoryController::class, 'index'])
-    ->name('categories.index');
+// Route::get('/categories', [CategoryController::class, 'index'])
+//     ->name('categories.index');
 
 Route::get('/categories/{id}', [CategoryController::class, 'get'])
     ->name('categories.get');
@@ -44,8 +44,8 @@ Route::post('/logout', [LoginController::class, 'logout'])
 
 Route::middleware('auth')->group(function () {
 
-    // Route::get('/categories', [CategoryController::class, 'index'])
-    //     ->name('categories.index');
+    Route::get('/categories', [CategoryController::class, 'index'])
+        ->name('categories.index');
 
     // Route::get('/categories/{id}', [CategoryController::class, 'get'])
     //     ->name('categories.get');

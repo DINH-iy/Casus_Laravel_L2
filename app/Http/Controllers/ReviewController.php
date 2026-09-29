@@ -6,8 +6,9 @@ use App\Providers\Reviews\Index;
 use App\Providers\Reviews\Get;
 use App\Providers\Reviews\Update;
 use Illuminate\Http\Request;
+use App\Http\Interfaces\ControllerInterface;
 
-class ReviewController extends Controller
+class ReviewController extends Controller implements ControllerInterface
 {
     /**
      * Display a listing of the resource.
@@ -24,7 +25,7 @@ class ReviewController extends Controller
         return $get->get($id);
     }
 
-    public function create()
+    public function create(Request $request)
     {
         //
     }

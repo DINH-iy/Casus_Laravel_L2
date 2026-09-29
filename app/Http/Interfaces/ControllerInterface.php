@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Interfaces;
+namespace App\Http\Interfaces;
 
 use Illuminate\Http\Request;
 
-interface CRUDControllerInterface
+interface ControllerInterface
 {
     public function index();
 
     public function get(int $id);
 
-    public function create();
+    public function create(Request $request);
 
     public function update(Request $request, int $id);
 

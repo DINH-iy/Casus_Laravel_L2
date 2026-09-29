@@ -6,9 +6,9 @@ use App\Providers\Orders\Index;
 // use App\Providers\Orders\Get;
 // use App\Providers\Orders\Update;
 use Illuminate\Http\Request;
-use App\Http\Interfaces\CRUDControllerInterface;
+use App\Http\Interfaces\ControllerInterface;
 
-class OrderController extends Controller implements CRUDControllerInterface
+class OrderController extends Controller implements ControllerInterface
 {
     /**
      * Display a listing of the resource.
@@ -25,7 +25,7 @@ class OrderController extends Controller implements CRUDControllerInterface
         // return $get->get($id);
     }
 
-    public function create()
+    public function create(Request $request)
     {
         // $create = new Create();
         // return $create->create($request);
