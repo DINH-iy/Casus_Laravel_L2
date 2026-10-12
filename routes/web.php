@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 
@@ -31,15 +31,15 @@ Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])
 Route::get('/products', [ProductController::class, 'index'])
     ->name('products.index');
 
-Route::get('/login', [LoginController::class, 'show'])
+Route::get('/login', [AuthController::class, 'show'])
     ->middleware('guest')
     ->name('login');
 
-Route::post('/login', [LoginController::class, 'login'])
+Route::post('/login', [AuthController::class, 'login'])
     ->middleware('guest')
     ->name('login.authenticate');
 
-Route::post('/logout', [LoginController::class, 'logout'])
+Route::post('/logout', [AuthController::class, 'logout'])
     ->middleware('auth')
     ->name('logout');
 

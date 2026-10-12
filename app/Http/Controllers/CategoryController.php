@@ -30,8 +30,8 @@ class CategoryController extends Controller implements ControllerInterface
 
     public function create(Request $request)
     {
-        // $create = new Create();
-        // return $create->create($request);
+        $create = new Create();
+        return $create->create($request);
     }
 
     public function update(Request $request, int $id)

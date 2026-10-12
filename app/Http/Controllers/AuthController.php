@@ -3,12 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Providers\Auth\Login; 
 use App\Providers\Auth\Logout; 
 use App\Providers\Auth\Show; 
 
-class LoginController extends Controller
+class AuthController extends Controller
 {
     public function show()
     {
