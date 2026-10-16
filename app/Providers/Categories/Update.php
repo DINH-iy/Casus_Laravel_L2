@@ -12,6 +12,11 @@ class Update
         $category = Category::findOrFail($id);
 
         try {
+
+
+
+
+        
             $category->name = $request->name;
             $category->save();
         } catch (\Exception $exception) {
