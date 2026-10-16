@@ -15,7 +15,7 @@ class Update
 
 
 
-
+$category->update($request->all());
         
             $category->name = $request->name;
             $category->save();
